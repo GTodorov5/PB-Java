@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class _01 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double pricePerPage = Double.parseDouble(scanner.nextLine());
+        double pricePerCover = Double.parseDouble(scanner.nextLine());//корица
+        int discountForSheets = Integer.parseInt(scanner.nextLine());//% отпечатване хартия
+        double sumPayForDesigner = Double.parseDouble(scanner.nextLine());
+        int percentFromAllSumPayedFromTeam = Integer.parseInt(scanner.nextLine());
+        double bookSheets = 899;
+        double covers = 2;
+        double beginSumForPrint = pricePerPage *bookSheets+pricePerCover*covers;
+        double discountForExpensesForPrint = beginSumForPrint *discountForSheets/100;
+        double sumDiscountForExpensesForPrint = beginSumForPrint - discountForExpensesForPrint;
+        double paymentSumForDesigner = sumDiscountForExpensesForPrint + sumPayForDesigner;
+        double takenPercentFromTeam = paymentSumForDesigner * percentFromAllSumPayedFromTeam/100;
+        double finalSum = paymentSumForDesigner - takenPercentFromTeam;
+        System.out.printf("Avtonom should pay %.2f BGN.",finalSum);
+
+
+
+    }
+}
